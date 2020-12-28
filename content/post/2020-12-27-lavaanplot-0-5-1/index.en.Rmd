@@ -1,0 +1,171 @@
+---
+title: lavaanPlot 0.5.1
+author: Alex
+date: '2018-04-13'
+slug: lavaanplot-0-5-1
+categories: ["R"]
+tags: []
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2020-12-27T15:14:47-05:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+lavaanPlot is an R package that I have been working on for the last couple of years. The purpose of the package is to provide a plotting interface for structural equation models from the [lavaan package](http://lavaan.ugent.be/) that looks nice. Using the [Diagrammer package](http://rich-iannone.github.io/DiagrammeR/index.html), and it's DOT language specification, you can make some nice looking diagrams, but it has a learning curve to it, which is okay because it has a rich set of features, but it makes it difficult to get into. What this package does is to provide a direct interface that is as simple as possible to lavaan objects for plotting, while still allowing the user to make as many custom modifications to the plot as they feel necessary.
+
+I have been working over the last couple of months to add functionality to the package and to fix bugs (thank you to Jorge Sinval for testing the package and suggesting new features and pointing out bugs). The result of these efforts is version 0.5.1, which is not on CRAN as of now, but can be found on [Github](https://github.com/alishinski/lavaanPlot) and you can install using `devtools::install_github("alishinski/lavaanPlot")`. 
+
+Here's a look at some of the functionality that the package offers right now.
+
+## Package examples
+
+The package is very straightforward to use, simply call the `lavaanPlot` function with your lavaan model, adding whatever graph, node and edge attributes you want as a named list (graph attributes are specified as a standard default value that shows you what the other attribute lists should look like). For your reference, the available attributes can be found here:
+
+http://rich-iannone.github.io/DiagrammeR/graphviz_and_mermaid.html#attributes
+
+Here are a couple quick example using the `mtcars` data set and the `HolzingerSwineford1989` data set. 
+
+First fit your lavaan models. The package supports plotting lavaan regression relationships and latent variable - indicator relationships.
+
+```{r}
+library(lavaan)
+library(lavaanPlot)
+
+# path model
+model <- 'mpg ~ cyl + disp + hp
+          qsec ~ disp + hp + wt'
+
+fit1 <- sem(model, data = mtcars)
+
+# latent variable model
+HS.model <- ' visual  =~ x1 + x2 + x3      
+textual =~ x4 + x5 + x6
+speed   =~ x7 + x8 + x9 
+'
+
+fit2 <- cfa(HS.model, data=HolzingerSwineford1939)
+```
+
+Then using that model fit object, simply call the `lavaanPlot` function.
+
+An example using the path model:
+
+```{r}
+lavaanPlot(model = fit1)
+```
+
+An example using the latent variable model:
+
+```{r}
+lavaanPlot(model = fit2)
+```
+
+The goal was to make the basic syntax as simple as possible so you can get started plotting your lavaan objects quickly, but then there are a number of options you can use to customize your plots.
+
+### Labels
+
+You can specify different variable labels
+
+```{r}
+labels1 <- list(mpg = "Miles Per Gallon", cyl = "Cylinders", disp = "Displacement", hp = "Horsepower", qsec = "Speed", wt = "Weight")
+
+lavaanPlot(model = fit1, labels = labels1)
+```
+
+
+### DiagrammeR Options
+
+Diagrammer allows you to customize your plot with a number of options for nodes, edges, and for the whole graph. You can find out more about what options are available at the [DiagrammeR website](http://rich-iannone.github.io/DiagrammeR/graphviz_and_mermaid.html#attributes), but here's an example of how you can specify those to lavaanPlot as lists of arguments.
+
+```{r}
+lavaanPlot(model = fit1, labels = labels1, node_options = list(shape = "box", fontname = "Helvetica"), edge_options = list(color = "grey"))
+```
+
+
+### lavaanPlot options
+
+For lavaanPlot, I've also added a number of options to include various aspects of structural equation models that you may want to add to your plot, including coefficient labels (for standardized and unstandardized path coefficients), covariance paths (which can also include labels), and coefficient significance values, which you can include in the form of significance stars, or by only including coefficient labels for significant paths in your plot. 
+
+Here's an example including coefficient labels:
+
+```{r}
+lavaanPlot(model = fit1, labels = labels1, coefs = TRUE)
+```
+
+Here's an example including labels for standardized coefficients:
+
+```{r}
+lavaanPlot(model = fit1, labels = labels1, coefs = TRUE, stand = TRUE)
+```
+
+And heres an example including labels for only the significant (p<0.05) standardized coefficients: 
+
+```{r}
+lavaanPlot(model = fit1, labels = labels1, coefs = TRUE, stand = TRUE, sig = 0.05)
+```
+
+
+
+
+
+All of these options work for latent variable loadings as well:
+
+```{r}
+
+
+#labels = list(visual = "Visual Ability", textual = "Textual Ability", speed = "Speed Ability")
+
+# significant standardized paths only
+#lavaanPlot(model = fit, labels = labels, node_options = list(shape = "box", fontname = "Helvetica"), edge_options = list(color = "grey"), coefs = TRUE)
+
+# significant unstandardized paths
+#lavaanPlot(model = fit, labels = labels, node_options = list(shape = "box", fontname = "Helvetica"), edge_options = list(color = "grey"), coefs = TRUE, stand = FALSE)
+
+# All paths unstandardized
+#lavaanPlot(model = fit, labels = labels, node_options = list(shape = "box", fontname = "Helvetica"), edge_options = list(color = "grey"), coefs = TRUE, stand = FALSE, sig = 1.00)
+```
+
+You can also include paths to represent model covariances if you want:
+
+```{r}
+# HS.model <- ' visual  =~ x1 + x2 + x3      
+# textual =~ x4 + x5 + x6
+# speed   =~ x7 + x8 + x9 
+# '
+# 
+# fit <- cfa(HS.model, data=HolzingerSwineford1939)
+# 
+labels2 = list(visual = "Visual Ability", textual = "Textual Ability", speed = "Speed Ability")
+
+lavaanPlot(model = fit2, labels = labels2, covs = TRUE)
+```
+
+You can include significance stars as well, which you can do by the type of parameter (regression paths, latent paths, and covariances)
+
+Path model with significance stars:
+
+```{r}
+lavaanPlot(model = fit1, labels = labels1, coefs = TRUE, covs = TRUE, stars = c("regress"))
+```
+
+Latent variable model with significance stars
+
+```{r}
+lavaanPlot(model = fit2, labels = labels2, coefs = TRUE, covs = TRUE, stars = c("latent"))
+```
+
+Latent variable model with covariance significance stars
+
+```{r}
+lavaanPlot(model = fit2, labels = labels2, coefs = TRUE, covs = TRUE, stars = c("latent", "covs"))
+```
+
+That about covers most of the basic use cases for lavaanPlot.
+
+Please feel free to reach out and let me know if you find lavaanPlot useful or if you would like to see certain features in future versions.
