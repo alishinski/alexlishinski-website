@@ -1,0 +1,30 @@
+---
+title: Cognitive, Affective, and Dispositional Components of Learning Programming
+author: Alex
+date: '2021-03-30'
+slug: cognitive-affective-and-dispositional-components-of-learning-programming
+categories: []
+tags: []
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2021-03-30T12:07:34-04:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+# My dissertation
+
+My dissertation was called "Cognitive, Affective, and Dispositional Components of Learning Programming", and as the title suggests, It is about an examination of constructs from these three overarching categories and how they affect novice programmers.
+
+I completed and defended my dissertation in 2017 at Michigan State University to earn my PhD in Educational Psychology and Educational Technology.
+
+There's more I can say about my dissertation, but for right now I am creating this post to have a persistent place where my dissertation can be accessed, because I have had requests for the document as it's behind a paywall online.
+
+So here is the document: {{< staticref "media/Lishinski_dissertation.pdf" "newtab" >}}Dissertation{{< /staticref >}} 
+
+[Dissertation]("media/Lishinski_dissertation.pdf")
