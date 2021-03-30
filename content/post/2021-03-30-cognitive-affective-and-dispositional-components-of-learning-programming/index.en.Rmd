@@ -25,6 +25,4 @@ I completed and defended my dissertation in 2017 at Michigan State University to
 
 There's more I can say about my dissertation, but for right now I am creating this post to have a persistent place where my dissertation can be accessed, because I have had requests for the document as it's behind a paywall online.
 
-So here is the document: {{< staticref "media/Lishinski_dissertation.pdf" "newtab" >}}Dissertation{{< /staticref >}} 
-
-[Dissertation]("media/Lishinski_dissertation.pdf")
+[Dissertation](Lishinski_dissertation.pdf)
