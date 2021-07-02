@@ -1,0 +1,1183 @@
+<!DOCTYPE html><html lang="en-us" >
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  
+  
+  <meta name="generator" content="Wowchemy 5.0.0-beta.1 for Hugo">
+  
+
+  
+
+  
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Alex Lishinski">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="lavaanPlot is an R package that I have been working on for the last couple of years. The purpose of the package is to provide a plotting interface for structural equation models from the lavaan package that looks nice.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="/post/lavaanplot-0-5-1/">
+
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#2962ff">
+  
+
+  
+  
+
+  
+  
+  
+  
+    
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha256-FMvZuGapsJLjouA6k7Eo2lusoAX9i0ShlWFG6qt7SLc=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.css" integrity="sha512-1xoFisiGdy9nvho8EgXuXvnpR5GAMSjFwp40gSRE3NwdUdIMIKuPa7bqoUhLD0O/5tPNhteAsE5XyyMi5reQVA==" crossorigin="anonymous">
+    
+
+    
+
+    
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.2.2/lazysizes.min.js" integrity="sha512-TmDwFLhg3UA4ZG0Eb4MIyT1O1Mb+Oww5kFG0uHqXsdbyZz9DcvYQhKpGgNkamAI6h2lGGZq2X8ftOJvF/XjTUg==" crossorigin="anonymous" async></script>
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+        
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+
+  
+
+  
+  
+  
+    
+      
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CRoboto:400,400italic,700%7CRoboto+Mono&display=swap">
+    
+  
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/wowchemy.min.2da9fc7ecccb62374ee4667dc6583d14.css">
+
+  
+
+
+
+
+  
+
+  
+
+
+  
+  
+
+  
+
+  <link rel="manifest" href="/index.webmanifest">
+  <link rel="icon" type="image/png" href="/images/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_32x32_fill_lanczos_center_2.png">
+  <link rel="apple-touch-icon" type="image/png" href="/images/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_192x192_fill_lanczos_center_2.png">
+
+  <link rel="canonical" href="/post/lavaanplot-0-5-1/">
+
+  
+  
+  
+  
+  
+  
+  
+    
+    
+  
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="og:site_name" content="Alex Lishinski">
+  <meta property="og:url" content="/post/lavaanplot-0-5-1/">
+  <meta property="og:title" content="lavaanPlot 0.5.1 | Alex Lishinski">
+  <meta property="og:description" content="lavaanPlot is an R package that I have been working on for the last couple of years. The purpose of the package is to provide a plotting interface for structural equation models from the lavaan package that looks nice."><meta property="og:image" content="/images/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_512x512_fill_lanczos_center_2.png">
+  <meta property="twitter:image" content="/images/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_512x512_fill_lanczos_center_2.png"><meta property="og:locale" content="en-us">
+  
+    
+      <meta property="article:published_time" content="2018-04-13T00:00:00&#43;00:00">
+    
+    <meta property="article:modified_time" content="2020-12-27T15:14:47-05:00">
+  
+
+  
+
+
+    
+
+
+
+
+
+
+  
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "/post/lavaanplot-0-5-1/"
+  },
+  "headline": "lavaanPlot 0.5.1",
+  
+  "datePublished": "2018-04-13T00:00:00Z",
+  "dateModified": "2020-12-27T15:14:47-05:00",
+  
+  "author": {
+    "@type": "Person",
+    "name": "Alex Lishinski"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "Alex Lishinski",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "/images/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_192x192_fill_lanczos_center_2.png"
+    }
+  },
+  "description": "lavaanPlot is an R package that I have been working on for the last couple of years. The purpose of the package is to provide a plotting interface for structural equation models from the lavaan package that looks nice."
+}
+</script>
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+
+  <title>lavaanPlot 0.5.1 | Alex Lishinski</title>
+
+</head>
+
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper  ">
+
+  
+  
+  
+  
+  
+  <script src="/js/wowchemy-init.js"></script>
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search" class="form-control">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  <div class="page-header">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="d-none d-lg-inline-flex">
+      <a class="navbar-brand" href="/">Alex Lishinski</a>
+    </div>
+    
+
+    
+    <button type="button" class="navbar-toggler" data-toggle="collapse"
+            data-target="#navbar-content" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+    <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+      <a class="navbar-brand" href="/">Alex Lishinski</a>
+    </div>
+    
+
+    
+    
+    <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
+
+      
+      <ul class="navbar-nav d-md-inline-flex">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#posts"><span>Posts</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/media/CV.pdf"><span>CV</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+      </ul>
+    </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+      
+      
+      <li class="nav-item">
+        <a class="nav-link js-search" href="#" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+      
+      <li class="nav-item dropdown theme-dropdown">
+        <a href="#" class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-label="Display preferences">
+          <i class="fas fa-moon" aria-hidden="true"></i>
+        </a>
+        <div class="dropdown-menu">
+          <a href="#" class="dropdown-item js-set-theme-light">
+            <span>Light</span>
+          </a>
+          <a href="#" class="dropdown-item js-set-theme-dark">
+            <span>Dark</span>
+          </a>
+          <a href="#" class="dropdown-item js-set-theme-auto">
+            <span>Automatic</span>
+          </a>
+        </div>
+      </li>
+      
+
+      
+
+    </ul>
+
+  </div>
+</nav>
+
+
+  </div>
+
+  <div class="page-body">
+    <article class="article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1>lavaanPlot 0.5.1</h1>
+
+  
+
+  
+    
+
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+          Last updated on
+      
+    
+    Dec 27, 2020
+  </span>
+  
+
+  
+
+  
+
+  
+  
+  
+  
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder mr-1"></i><a href="/category/r/">R</a></span>
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style">
+      
+<link href="/rmarkdown-libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/anchor-sections/anchor-sections.js"></script>
+<script src="/rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
+<script src="/rmarkdown-libs/viz/viz.js"></script>
+<link href="/rmarkdown-libs/DiagrammeR-styles/styles.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/grViz-binding/grViz.js"></script>
+
+
+<p>lavaanPlot is an R package that I have been working on for the last couple of years. The purpose of the package is to provide a plotting interface for structural equation models from the <a href="http://lavaan.ugent.be/">lavaan package</a> that looks nice. Using the <a href="http://rich-iannone.github.io/DiagrammeR/index.html">Diagrammer package</a>, and it’s DOT language specification, you can make some nice looking diagrams, but it has a learning curve to it, which is okay because it has a rich set of features, but it makes it difficult to get into. What this package does is to provide a direct interface that is as simple as possible to lavaan objects for plotting, while still allowing the user to make as many custom modifications to the plot as they feel necessary.</p>
+<p>I have been working over the last couple of months to add functionality to the package and to fix bugs (thank you to Jorge Sinval for testing the package and suggesting new features and pointing out bugs). The result of these efforts is version 0.5.1, which is not on CRAN as of now, but can be found on <a href="https://github.com/alishinski/lavaanPlot">Github</a> and you can install using <code>devtools::install_github("alishinski/lavaanPlot")</code>.</p>
+<p>Here’s a look at some of the functionality that the package offers right now.</p>
+<div id="package-examples" class="section level2">
+<h2>Package examples</h2>
+<p>The package is very straightforward to use, simply call the <code>lavaanPlot</code> function with your lavaan model, adding whatever graph, node and edge attributes you want as a named list (graph attributes are specified as a standard default value that shows you what the other attribute lists should look like). For your reference, the available attributes can be found here:</p>
+<p><a href="http://rich-iannone.github.io/DiagrammeR/graphviz_and_mermaid.html#attributes" class="uri">http://rich-iannone.github.io/DiagrammeR/graphviz_and_mermaid.html#attributes</a></p>
+<p>Here are a couple quick example using the <code>mtcars</code> data set and the <code>HolzingerSwineford1989</code> data set.</p>
+<p>First fit your lavaan models. The package supports plotting lavaan regression relationships and latent variable - indicator relationships.</p>
+<pre class="r"><code>library(lavaan)</code></pre>
+<pre><code>## This is lavaan 0.6-5</code></pre>
+<pre><code>## lavaan is BETA software! Please report any bugs.</code></pre>
+<pre class="r"><code>library(lavaanPlot)
+
+# path model
+model &lt;- &#39;mpg ~ cyl + disp + hp
+          qsec ~ disp + hp + wt&#39;
+
+fit1 &lt;- sem(model, data = mtcars)
+
+# latent variable model
+HS.model &lt;- &#39; visual  =~ x1 + x2 + x3      
+textual =~ x4 + x5 + x6
+speed   =~ x7 + x8 + x9 
+&#39;
+
+fit2 &lt;- cfa(HS.model, data=HolzingerSwineford1939)</code></pre>
+<p>Then using that model fit object, simply call the <code>lavaanPlot</code> function.</p>
+<p>An example using the path model:</p>
+<pre class="r"><code>lavaanPlot(model = fit1)</code></pre>
+<div id="htmlwidget-1" style="width:672px;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1">{"x":{"diagram":" digraph plot { \n graph [ overlap = true, fontsize = 10 ] \n node [ shape = box ] \n node [shape = box] \n cyl; disp; hp; wt; mpg; qsec \n node [shape = oval] \n  \n \n edge [ color = black ] \n cyl->mpg disp->mpg hp->mpg disp->qsec hp->qsec wt->qsec  \n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<p>An example using the latent variable model:</p>
+<pre class="r"><code>lavaanPlot(model = fit2)</code></pre>
+<div id="htmlwidget-2" style="width:672px;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-2">{"x":{"diagram":" digraph plot { \n graph [ overlap = true, fontsize = 10 ] \n node [ shape = box ] \n node [shape = box] \n x1; x2; x3; x4; x5; x6; x7; x8; x9 \n node [shape = oval] \n visual; textual; speed \n \n edge [ color = black ] \n  visual->x1 visual->x2 visual->x3 textual->x4 textual->x5 textual->x6 speed->x7 speed->x8 speed->x9 \n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<p>The goal was to make the basic syntax as simple as possible so you can get started plotting your lavaan objects quickly, but then there are a number of options you can use to customize your plots.</p>
+<div id="labels" class="section level3">
+<h3>Labels</h3>
+<p>You can specify different variable labels</p>
+<pre class="r"><code>labels1 &lt;- list(mpg = &quot;Miles Per Gallon&quot;, cyl = &quot;Cylinders&quot;, disp = &quot;Displacement&quot;, hp = &quot;Horsepower&quot;, qsec = &quot;Speed&quot;, wt = &quot;Weight&quot;)
+
+lavaanPlot(model = fit1, labels = labels1)</code></pre>
+<div id="htmlwidget-3" style="width:672px;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-3">{"x":{"diagram":" digraph plot { \n graph [ overlap = true, fontsize = 10 ] \n node [ shape = box ] \n node [shape = box] \n cyl; disp; hp; wt; mpg; qsec \n node [shape = oval] \n  \n mpg [label = \"Miles Per Gallon\"]\ncyl [label = \"Cylinders\"]\ndisp [label = \"Displacement\"]\nhp [label = \"Horsepower\"]\nqsec [label = \"Speed\"]\nwt [label = \"Weight\"] \n edge [ color = black ] \n cyl->mpg disp->mpg hp->mpg disp->qsec hp->qsec wt->qsec  \n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="diagrammer-options" class="section level3">
+<h3>DiagrammeR Options</h3>
+<p>Diagrammer allows you to customize your plot with a number of options for nodes, edges, and for the whole graph. You can find out more about what options are available at the <a href="http://rich-iannone.github.io/DiagrammeR/graphviz_and_mermaid.html#attributes">DiagrammeR website</a>, but here’s an example of how you can specify those to lavaanPlot as lists of arguments.</p>
+<pre class="r"><code>lavaanPlot(model = fit1, labels = labels1, node_options = list(shape = &quot;box&quot;, fontname = &quot;Helvetica&quot;), edge_options = list(color = &quot;grey&quot;))</code></pre>
+<div id="htmlwidget-4" style="width:672px;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-4">{"x":{"diagram":" digraph plot { \n graph [ overlap = true, fontsize = 10 ] \n node [ shape = box, fontname = Helvetica ] \n node [shape = box] \n cyl; disp; hp; wt; mpg; qsec \n node [shape = oval] \n  \n mpg [label = \"Miles Per Gallon\"]\ncyl [label = \"Cylinders\"]\ndisp [label = \"Displacement\"]\nhp [label = \"Horsepower\"]\nqsec [label = \"Speed\"]\nwt [label = \"Weight\"] \n edge [ color = grey ] \n cyl->mpg disp->mpg hp->mpg disp->qsec hp->qsec wt->qsec  \n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="lavaanplot-options" class="section level3">
+<h3>lavaanPlot options</h3>
+<p>For lavaanPlot, I’ve also added a number of options to include various aspects of structural equation models that you may want to add to your plot, including coefficient labels (for standardized and unstandardized path coefficients), covariance paths (which can also include labels), and coefficient significance values, which you can include in the form of significance stars, or by only including coefficient labels for significant paths in your plot.</p>
+<p>Here’s an example including coefficient labels:</p>
+<pre class="r"><code>lavaanPlot(model = fit1, labels = labels1, coefs = TRUE)</code></pre>
+<div id="htmlwidget-5" style="width:672px;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-5">{"x":{"diagram":" digraph plot { \n graph [ overlap = true, fontsize = 10 ] \n node [ shape = box ] \n node [shape = box] \n cyl; disp; hp; wt; mpg; qsec \n node [shape = oval] \n  \n mpg [label = \"Miles Per Gallon\"]\ncyl [label = \"Cylinders\"]\ndisp [label = \"Displacement\"]\nhp [label = \"Horsepower\"]\nqsec [label = \"Speed\"]\nwt [label = \"Weight\"] \n edge [ color = black ] \n cyl->mpg [label = \"-0.99\"] disp->mpg [label = \"-0.02\"] hp->mpg [label = \"-0.02\"] disp->qsec [label = \"-0.01\"] hp->qsec [label = \"-0.02\"] wt->qsec [label = \"1.69\"]  \n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<p>Here’s an example including labels for standardized coefficients:</p>
+<pre class="r"><code>lavaanPlot(model = fit1, labels = labels1, coefs = TRUE, stand = TRUE)</code></pre>
+<div id="htmlwidget-6" style="width:672px;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-6">{"x":{"diagram":" digraph plot { \n graph [ overlap = true, fontsize = 10 ] \n node [ shape = box ] \n node [shape = box] \n cyl; disp; hp; wt; mpg; qsec \n node [shape = oval] \n  \n mpg [label = \"Miles Per Gallon\"]\ncyl [label = \"Cylinders\"]\ndisp [label = \"Displacement\"]\nhp [label = \"Horsepower\"]\nqsec [label = \"Speed\"]\nwt [label = \"Weight\"] \n edge [ color = black ] \n cyl->mpg [label = \"-0.29\"] disp->mpg [label = \"-0.44\"] hp->mpg [label = \"-0.19\"] disp->qsec [label = \"-0.56\"] hp->qsec [label = \"-0.85\"] wt->qsec [label = \"0.91\"]  \n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<p>And heres an example including labels for only the significant (p&lt;0.05) standardized coefficients:</p>
+<pre class="r"><code>lavaanPlot(model = fit1, labels = labels1, coefs = TRUE, stand = TRUE, sig = 0.05)</code></pre>
+<div id="htmlwidget-7" style="width:672px;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-7">{"x":{"diagram":" digraph plot { \n graph [ overlap = true, fontsize = 10 ] \n node [ shape = box ] \n node [shape = box] \n cyl; disp; hp; wt; mpg; qsec \n node [shape = oval] \n  \n mpg [label = \"Miles Per Gallon\"]\ncyl [label = \"Cylinders\"]\ndisp [label = \"Displacement\"]\nhp [label = \"Horsepower\"]\nqsec [label = \"Speed\"]\nwt [label = \"Weight\"] \n edge [ color = black ] \n cyl->mpg [label = \"\"] disp->mpg [label = \"-0.44\"] hp->mpg [label = \"\"] disp->qsec [label = \"-0.56\"] hp->qsec [label = \"-0.85\"] wt->qsec [label = \"0.91\"]  \n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<p>All of these options work for latent variable loadings as well:</p>
+<pre class="r"><code>#labels = list(visual = &quot;Visual Ability&quot;, textual = &quot;Textual Ability&quot;, speed = &quot;Speed Ability&quot;)
+
+# significant standardized paths only
+#lavaanPlot(model = fit, labels = labels, node_options = list(shape = &quot;box&quot;, fontname = &quot;Helvetica&quot;), edge_options = list(color = &quot;grey&quot;), coefs = TRUE)
+
+# significant unstandardized paths
+#lavaanPlot(model = fit, labels = labels, node_options = list(shape = &quot;box&quot;, fontname = &quot;Helvetica&quot;), edge_options = list(color = &quot;grey&quot;), coefs = TRUE, stand = FALSE)
+
+# All paths unstandardized
+#lavaanPlot(model = fit, labels = labels, node_options = list(shape = &quot;box&quot;, fontname = &quot;Helvetica&quot;), edge_options = list(color = &quot;grey&quot;), coefs = TRUE, stand = FALSE, sig = 1.00)</code></pre>
+<p>You can also include paths to represent model covariances if you want:</p>
+<pre class="r"><code># HS.model &lt;- &#39; visual  =~ x1 + x2 + x3      
+# textual =~ x4 + x5 + x6
+# speed   =~ x7 + x8 + x9 
+# &#39;
+# 
+# fit &lt;- cfa(HS.model, data=HolzingerSwineford1939)
+# 
+labels2 = list(visual = &quot;Visual Ability&quot;, textual = &quot;Textual Ability&quot;, speed = &quot;Speed Ability&quot;)
+
+lavaanPlot(model = fit2, labels = labels2, covs = TRUE)</code></pre>
+<div id="htmlwidget-8" style="width:672px;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-8">{"x":{"diagram":" digraph plot { \n graph [ overlap = true, fontsize = 10 ] \n node [ shape = box ] \n node [shape = box] \n x1; x2; x3; x4; x5; x6; x7; x8; x9 \n node [shape = oval] \n visual; textual; speed \n visual [label = \"Visual Ability\"]\ntextual [label = \"Textual Ability\"]\nspeed [label = \"Speed Ability\"] \n edge [ color = black ] \n  visual->x1 visual->x2 visual->x3 textual->x4 textual->x5 textual->x6 speed->x7 speed->x8 speed->x9 textual -> visual [dir = \"both\"] speed -> visual [dir = \"both\"] speed -> textual [dir = \"both\"]\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<p>You can include significance stars as well, which you can do by the type of parameter (regression paths, latent paths, and covariances)</p>
+<p>Path model with significance stars:</p>
+<pre class="r"><code>lavaanPlot(model = fit1, labels = labels1, coefs = TRUE, covs = TRUE, stars = c(&quot;regress&quot;))</code></pre>
+<div id="htmlwidget-9" style="width:672px;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-9">{"x":{"diagram":" digraph plot { \n graph [ overlap = true, fontsize = 10 ] \n node [ shape = box ] \n node [shape = box] \n cyl; disp; hp; wt; mpg; qsec \n node [shape = oval] \n  \n mpg [label = \"Miles Per Gallon\"]\ncyl [label = \"Cylinders\"]\ndisp [label = \"Displacement\"]\nhp [label = \"Horsepower\"]\nqsec [label = \"Speed\"]\nwt [label = \"Weight\"] \n edge [ color = black ] \n cyl->mpg [label = \"-0.99\"] disp->mpg [label = \"-0.02*\"] hp->mpg [label = \"-0.02\"] disp->qsec [label = \"-0.01*\"] hp->qsec [label = \"-0.02***\"] wt->qsec [label = \"1.69***\"]  qsec -> mpg [label = \"0.45\", dir = \"both\"] disp -> cyl [label = \"193.42\", dir = \"both\"] hp -> cyl [label = \"98.75\", dir = \"both\"] wt -> cyl [label = \"1.32\", dir = \"both\"] hp -> disp [label = \"6511.12\", dir = \"both\"] wt -> disp [label = \"104.32\", dir = \"both\"] wt -> hp [label = \"42.81\", dir = \"both\"]\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<p>Latent variable model with significance stars</p>
+<pre class="r"><code>lavaanPlot(model = fit2, labels = labels2, coefs = TRUE, covs = TRUE, stars = c(&quot;latent&quot;))</code></pre>
+<div id="htmlwidget-10" style="width:672px;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-10">{"x":{"diagram":" digraph plot { \n graph [ overlap = true, fontsize = 10 ] \n node [ shape = box ] \n node [shape = box] \n x1; x2; x3; x4; x5; x6; x7; x8; x9 \n node [shape = oval] \n visual; textual; speed \n visual [label = \"Visual Ability\"]\ntextual [label = \"Textual Ability\"]\nspeed [label = \"Speed Ability\"] \n edge [ color = black ] \n  visual->x1 [label = \"1***\"] visual->x2 [label = \"0.55***\"] visual->x3 [label = \"0.73***\"] textual->x4 [label = \"1***\"] textual->x5 [label = \"1.11***\"] textual->x6 [label = \"0.93***\"] speed->x7 [label = \"1***\"] speed->x8 [label = \"1.18***\"] speed->x9 [label = \"1.08***\"] textual -> visual [label = \"0.41\", dir = \"both\"] speed -> visual [label = \"0.26\", dir = \"both\"] speed -> textual [label = \"0.17\", dir = \"both\"]\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<p>Latent variable model with covariance significance stars</p>
+<pre class="r"><code>lavaanPlot(model = fit2, labels = labels2, coefs = TRUE, covs = TRUE, stars = c(&quot;latent&quot;, &quot;covs&quot;))</code></pre>
+<div id="htmlwidget-11" style="width:672px;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-11">{"x":{"diagram":" digraph plot { \n graph [ overlap = true, fontsize = 10 ] \n node [ shape = box ] \n node [shape = box] \n x1; x2; x3; x4; x5; x6; x7; x8; x9 \n node [shape = oval] \n visual; textual; speed \n visual [label = \"Visual Ability\"]\ntextual [label = \"Textual Ability\"]\nspeed [label = \"Speed Ability\"] \n edge [ color = black ] \n  visual->x1 [label = \"1***\"] visual->x2 [label = \"0.55***\"] visual->x3 [label = \"0.73***\"] textual->x4 [label = \"1***\"] textual->x5 [label = \"1.11***\"] textual->x6 [label = \"0.93***\"] speed->x7 [label = \"1***\"] speed->x8 [label = \"1.18***\"] speed->x9 [label = \"1.08***\"] textual -> visual [label = \"0.41***\", dir = \"both\"] speed -> visual [label = \"0.26***\", dir = \"both\"] speed -> textual [label = \"0.17***\", dir = \"both\"]\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<p>That about covers most of the basic use cases for lavaanPlot.</p>
+<p>Please feel free to reach out and let me know if you find lavaanPlot useful or if you would like to see certain features in future versions.</p>
+</div>
+</div>
+
+    </div>
+
+    
+
+
+
+
+
+
+
+
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=/post/lavaanplot-0-5-1/&amp;text=lavaanPlot%200.5.1" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=/post/lavaanplot-0-5-1/&amp;t=lavaanPlot%200.5.1" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=lavaanPlot%200.5.1&amp;body=/post/lavaanplot-0-5-1/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=/post/lavaanplot-0-5-1/&amp;title=lavaanPlot%200.5.1" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="whatsapp://send?text=lavaanPlot%200.5.1%20/post/lavaanplot-0-5-1/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=/post/lavaanplot-0-5-1/&amp;title=lavaanPlot%200.5.1" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+  
+  
+    
+  
+  
+  
+  <div class="media author-card content-widget-hr">
+    
+      
+      <a href="/"><img class="avatar mr-3 avatar-circle" src="/author/alex-lishinski/avatar_hu627667e11dfc4fda2590256269cdc8cb_27650_270x270_fill_q75_lanczos_center.jpeg" alt="Alex Lishinski"></a>
+    
+
+    <div class="media-body">
+      <h5 class="card-title"><a href="/">Alex Lishinski</a></h5>
+      <h6 class="card-subtitle">Postdoctoral Researcher</h6>
+      
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="/#contact" >
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://twitter.com/lishinskialex" target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://scholar.google.com/citations?user=advuTqAAAAAJ&amp;hl=en" target="_blank" rel="noopener">
+        <i class="fas fa-graduation-cap"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/alishinski" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://www.linkedin.com/in/alex-lishinski/" target="_blank" rel="noopener">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </li>
+  
+</ul>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+  </div>
+</article>
+  </div>
+
+  <div class="page-footer">
+    
+    
+    <div class="container">
+      <footer class="site-footer">
+  
+
+  <p class="powered-by">
+    © Alex Lishinski 2020
+  </p>
+
+  
+  
+
+
+
+
+
+
+  <p class="powered-by">
+    
+    
+    
+    Published with
+    <a href="https://wowchemy.com/?utm_campaign=poweredby" target="_blank" rel="noopener">Wowchemy</a>  —
+    the free, <a href="https://github.com/wowchemy/wowchemy-hugo-modules" target="_blank" rel="noopener">
+    open source</a> website builder that empowers creators.
+    
+  </p>
+</footer>
+
+    </div>
+    
+  </div>
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+      
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
+      
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/instant.page/5.1.0/instantpage.min.js" integrity="sha512-1+qUtKoh9XZW7j+6LhRMAyOrgSQKenQ4mluTR+cvxXjP1Z54RxZuzstR/H9kgPXQsVB8IW7DMDFUJpzLjvhGSQ==" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/highlight.min.js" integrity="sha512-TDKKr+IvoqZnPzc3l35hdjpHD0m+b2EC2SrLEgKDRWpxf2rFCxemkgvJ5kfU48ip+Y+m2XVKyOCD85ybtlZDmw==" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/r.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/latex.min.js"></script>
+        
+      
+
+    
+
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.js" integrity="sha512-SeiQaaDh73yrb56sTW/RgVdi/mMqNeM2oBwubFHagc5BkixSpP1fvqF47mKzPGWYSSy4RwbBunrJBQ4Co8fRWA==" crossorigin="anonymous"></script>
+    
+
+    
+    
+    <script>const code_highlighting = true;</script>
+    
+
+    
+    
+    
+    
+    
+    
+    <script>
+      const search_config = {"indexURI":"/index.json","minLength":1,"threshold":0.3};
+      const i18n = {"no_results":"No results found","placeholder":"Search...","results":"results found"};
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks",
+        'slides' : "Slides"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/wowchemy.min.ffabb05383f1b16d83e7181a605e644c.js"></script>
+
+    
+
+
+
+
+
+
+</body>
+</html>
