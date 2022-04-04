@@ -20,7 +20,7 @@ interests:
 organizations:
 - name: University of Tennessee - Knoxville
   url: https://www.utk.edu/
-role: Postdoctoral Researcher
+role: Researcher
 social:
 - icon: envelope
   icon_pack: fas
