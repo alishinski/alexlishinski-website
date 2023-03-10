@@ -213,7 +213,7 @@ collections:
         fields:
           - {label: Link, name: url, widget: string}
           - {label: Link text, name: name, widget: string, required: false}
-          - label: Icon pack
+          - label: Icon packne
             name: icon_pack
             widget: select
             multiple: false

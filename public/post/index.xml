@@ -5,12 +5,39 @@
     <link>/post/</link>
       <atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     <description>Posts</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© Alex Lishinski 2020</copyright><lastBuildDate>Tue, 30 Mar 2021 00:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© Alex Lishinski 2023</copyright><lastBuildDate>Mon, 04 Apr 2022 00:00:00 +0000</lastBuildDate>
     <image>
       <url>/images/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_512x512_fill_lanczos_center_2.png</url>
       <title>Posts</title>
       <link>/post/</link>
     </image>
+    
+    <item>
+      <title>lavaanPlot Update</title>
+      <link>/post/lavaanplot-update/</link>
+      <pubDate>Mon, 04 Apr 2022 00:00:00 +0000</pubDate>
+      <guid>/post/lavaanplot-update/</guid>
+      <description>&lt;p&gt;My R package lavaanPlot has seen some updates since the last time I posted about it, and is now on version 0.6.3.&lt;/p&gt;
+&lt;p&gt;Since last time I posted about it for &lt;a href=&#34;/post/lavaanplot-0-5-1/&#34;&gt;version 0.5.1&lt;/a&gt;, I made some fixes/tweaks for existing features and added some new ones.&lt;/p&gt;
+&lt;p&gt;The most notable of these is that I added some new functions that allow one to save the &lt;code&gt;lavaanPlot&lt;/code&gt; plots as images (png and pdf) to embed in rmarkdown docs.&lt;/p&gt;
+&lt;p&gt;I also updated the main vignette to show different diagrammeR layout options that one can use.&lt;/p&gt;
+&lt;p&gt;The package is on CRAN for &lt;a href=&#34;https://CRAN.R-project.org/package=lavaanPlot&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;version 0.6.2&lt;/a&gt;, but more up to date versions of the package are on &lt;a href=&#34;https://github.com/alishinski/lavaanPlot&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;github&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The package now has it&amp;rsquo;s own &lt;code&gt;pkgdown&lt;/code&gt; website as well: &lt;a href=&#34;https://lavaanplot.alexlishinski.com&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://lavaanplot.alexlishinski.com&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;I am planning more updates to the package soon to try and add some requested features.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Self-evaluation Interventions: Impact on Self-efficacy and Performance in Introductory Programming</title>
+      <link>/post/self-evaluation-interventions-impact-on-self-efficacy-and-performance-in-introductory-programming/</link>
+      <pubDate>Thu, 01 Jul 2021 00:00:00 +0000</pubDate>
+      <guid>/post/self-evaluation-interventions-impact-on-self-efficacy-and-performance-in-introductory-programming/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;m very excited to say that my paper, called &amp;ldquo;Self-evaluation Interventions: Impact on Self-efficacy and Performance in Introductory Programming&amp;rdquo; has finally been published in ACM TOCE! This paper was a whole thing, and it took over 3 years to go from the initial version that I submitted to ICER in 2018, to the final version that is appearing now in ACM TOCE. Through the initial rejection and feedback from ICER, to multiple rounds of revisions for TOCE, this paper is quite a bit different, and I must say better than the initial version.&lt;/p&gt;
+&lt;p&gt;This paper comes from the work that I did on my dissertation. As part of my research program for my dissertation, I worked with the CS1 classes at MSU. In my final semester of data collection, I wanted to take what I had learned about the importance of self-efficacy from the previous semesters, and try to test out an actual intervention. I looked through some of the prior literature on interventions designed to improve self-efficacy, and I found some promising literature on self-evaluation. Self-evaluation, or self-assessment, as it is alternatively known, refers to a range of practices where students judge their own work. The basic underlying premise with a self-evaluation intervention is that if you can get students to engage with a self-evaluation task, you can get them to engage in self-regulated learning behaviors that will in turn lead to greater learning. There are many different versions of this that have been tried, but what we did in this test was we asked students to engage with the task of reviewing feedback that they got on a programming project, and asked them to self-identify what had gone well and what had not gone well with that particular project. We collected the answers that students gave for these questions, but the key to the intervention was that they simply engage with the task.&lt;/p&gt;
+&lt;p&gt;Initially for my dissertation this intervention was simply evaluated by looking at the intervention group vs the control group being all of the students who didn&amp;rsquo;t take part. But we always knew that there was a selection bias issue and I wanted to dive deeper into looking at this comparison with more sophisticated methods, but there was already enough going on in my dissertation that this would have been too much to add on, and I wanted to get my dissertation done. So I knew the first thing I was going to do with publishing from my dissertation was to take this data from this pilot intervention test, and apply propensity score adjustments to see if there really was an effect of the intervention if I could reduce the selection bias. Upon doing these adjustments, mostly the differences went away, but there was still a significant effect of the intervention on students&#39; programming project grades while they were doing the intervention, although no such effect existed for their self-efficacy. Then later on in the revision process I also felt confident enough with using multiple imputation techniques to add that to the analysis, as there was a fair bit of missing data. When using multiple imputation, some effects on self-efficacy began to come out again, although these effects were weaker than those for students&#39; grades, and they depended on which propensity score model that I used.&lt;/p&gt;
+&lt;p&gt;In the end, we found that there were some significant effects of doing a self-evaluation task as far as we could tell given the limits of propensity score adjustments, and this is significant because the intervention was not particularly involved, taking students just a few minutes each week. Going forward we hope to look further into exactly what the intervention should look like to produce the greatest effects for both self-efficacy and learning, as the literature on self-assessment has not settled what are the components that make the task effective, and this may be different in the context of CS.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Cognitive, Affective, and Dispositional Components of Learning Programming</title>
