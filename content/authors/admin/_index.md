@@ -41,6 +41,6 @@ superuser: true
 title: Alex Lishinski
 ---
 
-My name is Alex Lishinski, I earned my Ph.D in Educational Psychology and Educational Technology from Michigan State University. I work as a Postdoctoral Researcher at the University of Tennessee - Knoxville with a focus on Computer Science Education. My current focus is on motivational and affective factors that influence student outcomes in undergraduate introductory programming courses. I am also very interested in statistics and research methods generally, and statistical programming in R.
+My name is Alex Lishinski, I earned my Ph.D in Educational Psychology and Educational Technology from Michigan State University. I work as a Research Assistant Professor at the University of Tennessee - Knoxville with a focus on Computer Science Education. My current focus is on motivational and affective factors that influence student outcomes in undergraduate introductory programming courses. I am also very interested in statistics and research methods generally, and statistical programming in R.
 
 {{< icon name="download" pack="fas" >}} Download my {{< staticref "media/CV.pdf" "newtab" >}}CV{{< /staticref >}}.
